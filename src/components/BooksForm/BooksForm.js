@@ -10,7 +10,7 @@ const BooksForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault(); 
-        dispatch({type: 'ADD_BOOK', payload: {title, author}});
+        dispatch({payload: {title, author}});
         setTitle('');
         setAuthor('');
     }
