@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addBook } from "../../redux/store";
+import { addBookRequest } from "../../redux/booksRedux.js";
 
 const BooksForm = () => {
 
@@ -11,7 +11,7 @@ const BooksForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault(); 
-        dispatch(addBook({title, author}));
+        dispatch(addBookRequest({title, author})); // funkcja handleSubmit ma dostęp do zakresu wyżej i można przekazać to do bookRedux tam do addBookRequest(newBook)
         setTitle('');
         setAuthor('');
     }

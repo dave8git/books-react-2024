@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { removeBook } from "../../redux/store";
+import { removeBook } from "../../redux/booksRedux";
 
 const BooksList = () => {
     const books = useSelector(state => state.books);
