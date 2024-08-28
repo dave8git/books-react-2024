@@ -14,16 +14,21 @@ const ADD_BOOK = createActionName('ADD_BOOK');
 const UPDATE_BOOKS = createActionName('UPDATE_BOOKS');
 
 // action creators 
-export const removeBook = payload => ({ type: REMOVE_BOOK, payload});
+export function removeBook(payload) {
+    console.log('payload', payload);
+    return {
+        type: REMOVE_BOOK,
+        payload: payload
+    }
+} 
 export const addBook = payload => ({ type: ADD_BOOK, payload});
 export const updateBooks = payload => ({ type: UPDATE_BOOKS, payload});
 
 const reducer = (state, action) => {
     switch(action.type) {
-        case 'REMOVE_BOOK':
-            console.log('remove book is working')
+        case REMOVE_BOOK:
             return { ...state, books: state.books.filter(book => book.id !== action.payload)};
-        case 'ADD_BOOK':
+        case ADD_BOOK:
             return { ...state, books: [ ...state.books, { ...action.payload, id: shortid() }]};
         default: 
             return state;

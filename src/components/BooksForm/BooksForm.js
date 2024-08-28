@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { addBook } from "../../redux/store";
 
 const BooksForm = () => {
 
@@ -10,7 +11,7 @@ const BooksForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault(); 
-        dispatch({payload: {title, author}});
+        dispatch(addBook({title, author}));
         setTitle('');
         setAuthor('');
     }
@@ -24,3 +25,4 @@ const BooksForm = () => {
 };
 
 export default BooksForm;
+
